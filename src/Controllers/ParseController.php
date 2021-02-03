@@ -12,7 +12,7 @@ class ParseController extends Controller
     {
         $response->getBody()->write('<pre>' .print_library(
 
-            'doctrine/inflector/lib/Doctrine/Inflector', '\\Doctrine\\Inflector'
+                'twig/twig/src', '\\Twig'
 
         ) . '</pre>');
         return $response;
@@ -38,10 +38,19 @@ class ParseController extends Controller
 
 //print_library('slim/slim/Slim', '\\Slim');
 //print_library('slim/psr7/src', '\\Slim\\Psr7');
+//print_library('slim/csrf/src', '\\Slim\\Csrf');
+//print_library('slim/twig-view/src', '\\Slim\\Views');
+//print_library('slim/flash/src', '\\Slim\\Flash');
 
 
 
+//print_library('twig/twig/src', '\\Twig');
 
 //print_library('illuminate/database', '\\Illuminate\\Database');
+
 //print_library('phpunit/phpunit/src', '\\PHPUnit');
+
 //print_library('doctrine/instantiator/src/Doctrine/Instantiator', '\\Doctrine\\Instantiator');
+
+//print_library('respect/validation/library', '\\Respect\\Validation');
+//print_library('respect/stringifier/src', '\\Respect\\Stringifier');

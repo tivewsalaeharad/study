@@ -3,7 +3,6 @@
 namespace App\Validation;
 
 use Psr\Http\Message\RequestInterface as Request;
-use Respect\Validation\Validator as Respect;
 use Respect\Validation\Exceptions\NestedValidationException;
 
 class Validator

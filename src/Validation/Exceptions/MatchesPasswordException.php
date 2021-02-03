@@ -4,11 +4,12 @@ namespace App\Validation\Exceptions;
 
 use Respect\Validation\Exceptions\ValidationException;
 
-class EmailAvailableException extends ValidationException
+class MatchesPasswordException extends ValidationException
 {
     protected $defaultTemplates = [
         self::MODE_DEFAULT => [
-            self::STANDARD => 'Данный адрес электронной почты уже занят.'
+            self::STANDARD => 'Старый пароль введён неверно.'
         ]
     ];
+
 }

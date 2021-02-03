@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Изучение Vue.js</title>
+</head>
+
+<body>
+
+<div id="app">
+    <a v-bind:href="link">Link</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<script>
+
+    new Vue({
+        el: "#app",
+        data: {
+            link: 'http://www.example.com',
+            markup: '<a href="http://www.example.com">Link</a>'
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

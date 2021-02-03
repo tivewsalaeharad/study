@@ -1,16 +1,20 @@
 import Vue from 'vue'
-import RegisterComponent from './components/auth/register'
+import VueRouter from 'vue-router';
+import routes from './routes';
+import store from './store';
+import SampleComponent from './components/auth/sample'
 
-//import './material-icons'
-//import 'vue-material-design-icons/styles.css'
-//import FlashSuccess from './components/flash/success.js'
-//import StackTrace from './components/exceptions/stack-trace.vue'
+Vue.use(VueRouter);
 
-//Vue.component('stack-trace', StackTrace)
-//Vue.component('flash-success', FlashSuccess)
+const router = new VueRouter({
+    mode: 'history',
+    routes
+});
 
-Vue.component('register', RegisterComponent);
+Vue.component('register', SampleComponent);
 
 window.app = new Vue({
-    el: "#app"
+    el: "#app",
+    router,
+    store
 })

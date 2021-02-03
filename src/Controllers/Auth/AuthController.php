@@ -11,6 +11,30 @@ use Respect\Validation\Validator as Respect;
 class AuthController extends Controller
 {
 
+    public function getSignOut(Request $request, Response $response)
+    {
+        $this->auth->logout();
+        return $response->withHeader('Location','/');
+    }
+
+    public function getSignIn(Request $request, Response $response)
+    {
+        return $this->view->render($response, 'auth/signin.twig');
+    }
+
+    public function postSignIn(Request $request, Response $response)
+    {
+        $params = $request->getParsedBody();
+        $auth = $this->auth->attempt($params['email'], $params['password']);
+
+        if (!$auth) {
+            $this->flash->addMessage('error', 'Неверный логин или пароль');
+            return $response->withHeader('Location','/auth/signin');
+        }
+
+        return $response->withHeader('Location','/');
+    }
+
     public function getSignUp(Request $request, Response $response)
     {
         //var_dump($request->getAttribute('csrf_value'));
@@ -36,6 +60,10 @@ class AuthController extends Controller
             'name' => $params['name'],
             'password' => password_hash($params['password'], PASSWORD_DEFAULT, ['cost' => 10]),
         ]);
+
+        $this->flash->addMessage('info', "Поздравляем! Вы зарегистрированы.");
+
+        $this->auth->attempt($user->email, $params['password']);
 
         return $response->withHeader('Location','/');
     }
